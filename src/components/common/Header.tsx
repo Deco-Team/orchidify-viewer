@@ -14,8 +14,8 @@ import logo from '~/assets/logo.png'
 
 function Header() {
   const pages = [
-    { title: 'Ứng tuyển', variant: 'text' },
-    { title: 'Đăng kí', variant: 'contained' }
+    { title: 'Ứng tuyển', variant: 'text', href: '/instructor-register' },
+    { title: 'Đăng kí', variant: 'contained', href: '/learner-register' }
   ]
   const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
@@ -24,8 +24,9 @@ function Header() {
     setAnchorElNav(event.currentTarget)
   }
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (href: string) => {
     setAnchorElNav(null)
+    navigate(href)
   }
 
   return (
@@ -96,7 +97,7 @@ function Header() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page, i) => (
-                <MenuItem key={i} onClick={handleCloseNavMenu}>
+                <MenuItem key={i} onClick={() => handleCloseNavMenu(page.href)}>
                   <Typography sx={{ textAlign: 'center' }}>{page.title}</Typography>
                 </MenuItem>
               ))}
@@ -107,8 +108,8 @@ function Header() {
               <Button
                 variant={page.variant as 'text' | 'outlined' | 'contained'}
                 key={i}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, display: 'block' }}
+                onClick={() => handleCloseNavMenu(page.href)}
+                sx={{ my: 2, display: 'block', mx: 1 }}
               >
                 {page.title}
               </Button>

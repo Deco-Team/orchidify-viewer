@@ -36,7 +36,7 @@ const Welcome = () => {
           </Typography>
         </Box>
         <Typography>Tải Orchidify cho IOS và Android. Ứng dụng hỗ trợ học tập chăm sóc hoa lan.</Typography>
-        <QRCode value='hey' />
+        <QRCode value='https://orchidify.com/' />
         <Button color='primary' onClick={() => navigate('/courses')}>
           Tham khảo khóa học
         </Button>

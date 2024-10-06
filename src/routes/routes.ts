@@ -1,5 +1,6 @@
 import { lazy } from 'react'
 
+const OtpVerify = lazy(() => import('~/pages/OtpVerify'))
 const Welcome = lazy(() => import('~/pages/Welcome'))
 const CourseList = lazy(() => import('~/pages/CourseList'))
 const LearnerRegister = lazy(() => import('~/pages/LearnerRegister'))
@@ -12,7 +13,7 @@ export const publicRoute = {
     Component: Welcome
   },
   courseList: {
-    name: 'Danh sách khóa học',
+    name: 'Danh sách khóa học - Orchidify',
     path: '/courses',
     Component: CourseList
   }
@@ -28,5 +29,10 @@ export const withoutHeaderRoute = {
     name: 'Đăng kí giảng viên - Orchidify',
     path: '/instructor-register',
     Component: InstructorRegister
+  },
+  otpVerify: {
+    name: 'Xác nhận OTP',
+    path: '/otp-verify',
+    Component: OtpVerify
   }
 }
