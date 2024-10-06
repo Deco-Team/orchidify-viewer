@@ -24,7 +24,7 @@ function App() {
               key={path}
               path={path}
               element={
-                <Suspense fallback={<Loading />}>
+                <Suspense fallback={<Loading fullViewport />}>
                   <Header />
                   <Page title={name} children={<Component />}></Page>
                 </Suspense>
@@ -36,7 +36,7 @@ function App() {
               key={path}
               path={path}
               element={
-                <Suspense fallback={<Loading />}>
+                <Suspense fallback={<Loading fullViewport />}>
                   <Page title={name} children={<Component />}></Page>
                 </Suspense>
               }

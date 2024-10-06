@@ -20,6 +20,10 @@ export const notifyLoading = () => {
   toast.loading('Loading...')
 }
 
+export const dismiss = () => {
+  toast.dismiss()
+}
+
 export const notifySuccess = (msg: string) => {
   toast.dismiss()
   toast.success(msg, Emmiter)
