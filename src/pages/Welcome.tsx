@@ -17,7 +17,7 @@ const Welcome = () => {
       }}
     >
       <Box>
-        <img src={phone} />
+        <img src={phone} width={275} />
       </Box>
       <Box sx={{ display: 'flex', gap: 5, flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' } }}>
         <Box
@@ -27,9 +27,18 @@ const Welcome = () => {
             mt: { xs: 5, md: 0 }
           }}
         >
-          <Typography sx={{ display: 'inline' }} variant='h3' fontWeight={500}>
+          <Typography
+            sx={{ display: 'inline', fontSize: { xs: 35 }, textAlign: { xs: 'center' } }}
+            variant='h3'
+            fontWeight={500}
+          >
             Tải ứng dụng
-            <Typography sx={{ display: 'inline' }} variant='h3' fontWeight={700} color={theme.palette.primary.main}>
+            <Typography
+              sx={{ display: 'inline', fontSize: { xs: 35 }, textAlign: { xs: 'center' } }}
+              variant='h3'
+              fontWeight={700}
+              color={theme.palette.primary.main}
+            >
               {' '}
               Orchidify
             </Typography>

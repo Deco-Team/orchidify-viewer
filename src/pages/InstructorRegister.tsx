@@ -39,7 +39,15 @@ const InstructorRegister = () => {
       <IconButton sx={{ position: 'absolute', m: 3, right: 0, top: 0 }} onClick={() => navigate(-1)}>
         <Close />
       </IconButton>
-      <Box sx={{ width: '50%', position: 'absolute', left: '50%', transform: 'translateX(-50%)', mb: 5 }}>
+      <Box
+        sx={{
+          width: { xs: '80%', md: '50%' },
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          mb: 5
+        }}
+      >
         <Typography textAlign='center' variant='h4'>
           Ứng tuyển giảng viên giảng dạy
         </Typography>
