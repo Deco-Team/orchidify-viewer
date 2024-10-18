@@ -5,7 +5,6 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import banner from '~/assets/banner.jpg'
-import ControlledDateTimeInput from '~/components/form/ControlledDateTimeInput'
 import ControlledOutlinedInput from '~/components/form/ControlledOutlinedInput'
 import { ILearnerRegisterFormPayload } from '~/data/register/register.dto'
 import useRegisterApi from '~/hooks/api/useRegisterApi'
@@ -51,7 +50,15 @@ const LearnerRegister = () => {
 
   return (
     <Box sx={{ overflow: 'hidden' }}>
-      <Box sx={{ width: '50%', height: '100vh', float: 'right', position: 'relative', overflowY: 'auto' }}>
+      <Box
+        sx={{
+          width: { xs: '100%', md: '50%' },
+          height: '100vh',
+          float: 'right',
+          position: 'relative',
+          overflowY: 'auto'
+        }}
+      >
         <IconButton sx={{ right: 0, m: 3, position: 'fixed' }} onClick={() => navigate(-1)}>
           <Close />
         </IconButton>
@@ -82,14 +89,6 @@ const LearnerRegister = () => {
               controller={{ name: 'email', control }}
               label='Email'
             />
-            <ControlledOutlinedInput
-              sx={{ my: 3 }}
-              placeholder='Nhập số điện thoại'
-              fullWidth
-              controller={{ name: 'phone', control }}
-              label='Số điện thoại'
-            />
-            <ControlledDateTimeInput label='Ngày sinh' controller={{ name: 'dateOfBirth', control }} />
             <ControlledOutlinedInput
               sx={{ my: 3 }}
               placeholder='Nhập mật khẩu'
@@ -136,7 +135,7 @@ const LearnerRegister = () => {
           </form>
         </Box>
       </Box>
-      <Box sx={{ background: 'red', width: '50%', height: '100vh' }}>
+      <Box sx={{ width: '50%', height: '100vh' }}>
         <img src={banner} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       </Box>
     </Box>

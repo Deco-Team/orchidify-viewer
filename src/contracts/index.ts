@@ -12,3 +12,9 @@ export const FileFormat = {
   docx: 'docx',
   pdf: 'pdf'
 }
+
+export enum LEVEL {
+  INTERMEDIATE = 'INTERMEDIATE',
+  BASIC = 'BASIC',
+  ADVANCED = 'ADVANCED'
+}
