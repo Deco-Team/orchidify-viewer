@@ -1,7 +1,7 @@
 import { Box, Button, Container, Typography, useTheme } from '@mui/material'
 import QRCode from 'react-qr-code'
 import { useNavigate } from 'react-router-dom'
-import phone from '~/assets/phone.svg'
+import phone from '~/assets/phone.png'
 const Welcome = () => {
   const theme = useTheme()
   const navigate = useNavigate()

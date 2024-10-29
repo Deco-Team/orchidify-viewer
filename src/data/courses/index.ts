@@ -10,6 +10,17 @@ export interface ICourseListResponse {
   status: string
   learnerLimit: number
   rate: number
+  ratingSummary: {
+    totalSum: number
+    totalCount: number
+    totalCountByRate: {
+      '1': number
+      '2': number
+      '3': number
+      '4': number
+      '5': number
+    }
+  }
   discount: number
   instructorId: string
   isPublished: true
