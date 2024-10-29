@@ -39,15 +39,15 @@ const CloudinaryUploadWidget = ({
                   ...text.vi.uploader.errors,
                   unavailable: 'Không có sẵn',
                   max_number_of_files: extractMessage(errorMessage.ERM012, [minFile, maxFiles]),
-                  allowed_formats: extractMessage(errorMessage.ERM012, [
+                  allowed_formats: extractMessage(errorMessage.ERM011, [
                     clientAllowedFormats.join(', '),
                     maxFileSize.text
                   ]),
-                  max_file_size: extractMessage(errorMessage.ERM012, [
+                  max_file_size: extractMessage(errorMessage.ERM011, [
                     clientAllowedFormats.join(', '),
                     maxFileSize.text
                   ]),
-                  min_file_size: extractMessage(errorMessage.ERM012, [
+                  min_file_size: extractMessage(errorMessage.ERM011, [
                     clientAllowedFormats.join(', '),
                     maxFileSize.text
                   ])

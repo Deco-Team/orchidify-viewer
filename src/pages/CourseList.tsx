@@ -19,15 +19,18 @@ const CourseList = () => {
   const [level, setLevel] = useState<string[]>([])
   const [sortTarget, setSortTarget] = useState('')
   const [courseType, setCourseType] = useState<string[]>([])
+  const [page, setPage] = useState(1)
 
   useEffect(() => {
     const fetchData = async () => {
+      const courseTypeToString = courseType.join(', ')
       const [{ courseData, courseError }, { typeData, typeError }] = await Promise.all([
-        getCourseList(),
+        getCourseList(searchKeyword, courseTypeToString, level, page, 6, sortTarget),
         getCourseTypes()
       ])
       if (courseData) {
         setCourseList(courseData)
+        setPage(courseData.page)
       } else if (courseError) {
         notifyError(courseError!.message)
       }
@@ -38,27 +41,25 @@ const CourseList = () => {
       }
     }
     fetchData()
-  }, [getCourseList, getCourseTypes])
+  }, [courseType, getCourseList, getCourseTypes, level, page, searchKeyword, sortTarget])
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const courseTypeToString = courseType.join(', ')
-      const { courseData, courseError } = await getCourseList(
-        searchKeyword,
-        courseTypeToString,
-        level,
-        undefined,
-        undefined,
-        sortTarget
-      )
-      if (courseData) {
-        setCourseList(courseData)
-      } else if (courseError) {
-        notifyError(courseError!.message)
-      }
+  const handlePagination = async (_event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value)
+    const courseTypeToString = courseType.join(', ')
+    const { courseData, courseError } = await getCourseList(
+      searchKeyword,
+      courseTypeToString,
+      level,
+      page,
+      6,
+      sortTarget
+    )
+    if (courseData) {
+      setCourseList(courseData)
+    } else if (courseError) {
+      notifyError(courseError!.message)
     }
-    fetchData()
-  }, [courseType, getCourseList, level, searchKeyword, sortTarget])
+  }
 
   return (
     <Box sx={{ pb: 10, display: 'flex', flexDirection: 'column' }}>
@@ -98,7 +99,14 @@ const CourseList = () => {
             </Grid>
           ))}
       </Grid>
-      <Pagination sx={{ my: 5, mx: 'auto' }} color='primary' count={courseList?.pagingCounter} shape='rounded' />
+      <Pagination
+        sx={{ my: 5, mx: 'auto' }}
+        color='primary'
+        page={page}
+        onChange={handlePagination}
+        count={courseList?.totalPages}
+        shape='rounded'
+      />
     </Box>
   )
 }
